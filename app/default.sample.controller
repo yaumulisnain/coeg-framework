@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Created By 	: Ade Yusuf Yaumul Isnain
+ * Version 		: 1.0.0
+ */
+
+class DefaultController extends Controller
+{
+	private $dir;
+
+	public function __construct()
+	{
+		$this->dir = APP_FOLDER . "/" . basename(dirname(__FILE__));
+		$this->init();
+	}
+
+	private function init()
+	{
+		$this->view = new View($this->dir);
+		$this->view->render();
+	}
+}
